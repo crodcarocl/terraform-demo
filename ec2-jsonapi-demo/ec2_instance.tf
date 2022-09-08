@@ -10,4 +10,6 @@ module "ec2_cluster" {
 
   vpc_security_group_ids = [aws_security_group.sg_app01_instance.id]
   subnet_id              = module.vpc.private_subnets[0]
+
+  tags = {Environment = var.environment_settings["${terraform.workspace}"].environment}
 }

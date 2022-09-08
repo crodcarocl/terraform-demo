@@ -18,6 +18,8 @@ module "vpc" {
     var.environment_settings["${terraform.workspace}"].vpc1_public_subnet2_cidr
     ]
 
+  tags = {Environment = var.environment_settings["${terraform.workspace}"].environment}
+
   enable_nat_gateway = true
   single_nat_gateway = true
   # one_nat_gateway_per_az = true
